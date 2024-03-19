@@ -9,5 +9,28 @@ There is no automated test for this one, this is more for you to understand time
 */
 
 function calculateTime(n) {
-    return 0.01;
+  let iterations = 5;
+  let totalTime = 0;
+
+  let j = iterations;
+  while (j > 0) {
+    let sum = 0;
+
+    const initialTime = Date.now();
+    for (let i = 1; i < n; i++) {
+      sum += i;
+    }
+    const finalTime = Date.now();
+
+    totalTime += finalTime - initialTime;
+
+    j -= 1;
+  }
+
+  return totalTime / iterations;
 }
+
+// res = calculateTime(100);
+// res = calculateTime(100000);
+res = calculateTime(1000000000);
+console.log(res);
